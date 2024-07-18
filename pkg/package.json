@@ -1,0 +1,21 @@
+{
+  "name": "sparql-formatter",
+  "type": "module",
+  "description": "Rust implementation of a SPARQL formatter with bindings to JavaScript/TypeScript",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bastiscode/sparql-formatter"
+  },
+  "files": [
+    "sparql_formatter_bg.wasm",
+    "sparql_formatter.js",
+    "sparql_formatter.d.ts"
+  ],
+  "main": "sparql_formatter.js",
+  "types": "sparql_formatter.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

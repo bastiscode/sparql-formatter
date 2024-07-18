@@ -1,0 +1,18 @@
+[package]
+name = "sparql-formatter"
+version = "0.1.0"
+edition = "2021"
+description = "Rust implementation of a SPARQL formatter with bindings to JavaScript/TypeScript"
+license = "MIT"
+repository = "https://github.com/bastiscode/sparql-formatter"
+
+[lib]
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+anyhow = "1.0"
+text-utils-grammar = { path = "third_party/text-utils-grammar"}
+wasm-bindgen = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+serde-wasm-bindgen = "0.6"
+console_error_panic_hook = "0.1"

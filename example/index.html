@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>SPARQL formatter example</title>
+  </head>
+  <body>
+    <script type="module">
+      import init, { SPARQLFormatter, commonSPARQLPrefixes } from "/pkg/sparql_formatter.js";
+      init().then(() => {
+        const formatter = new SPARQLFormatter();
+        const prefixes = commonSPARQLPrefixes();
+        // create an on click event listener for the format button
+        document.getElementById("format").addEventListener("click", () => {
+            let sparql = document.getElementById("sparql");
+            console.log(`format called with ${sparql.value}`)
+            console.log(prefixes);
+            // format the SPARQL query with indentation of 4 spaces
+            let fixed = formatter.format(sparql.value, prefixes, 4);
+            console.log(`formatted: ${fixed}`);
+            // set the formatted SPARQL query back to the input field
+            sparql.value = fixed;
+        });
+      });
+    </script>
+    <!-- Create a text input field which will be formatted on click with the SPARQL formatter --> 
+    <textarea id="sparql" rows="10", cols="80">SELECT * WHERE { wd:ent wdt:prop ?y . wd:ent rdfs:label ?label }</textarea>
+    <br>
+    <button id="format">Format</button>
+  </body>
+</html>
